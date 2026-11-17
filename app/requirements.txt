@@ -1,0 +1,6 @@
+fastapi>=0.110,<1
+uvicorn[standard]>=0.29,<1
+azure-identity>=1.17,<2
+azure-search-documents>=11.5,<12
+azure-storage-blob>=12.20,<13
+openai>=1.40,<2

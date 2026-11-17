@@ -1,0 +1,34 @@
+# Copy to terraform.tfvars and adjust.
+
+location    = "eastus2"
+name_prefix = "rag"
+
+# Model names and versions change often. Before deploying, check what your region offers:
+#   az cognitiveservices model list -l <region> -o table
+# Capacity is in thousands of tokens per minute.
+model_deployments = {
+  "chat-small" = {
+    model    = "gpt-4o-mini"
+    version  = "2024-07-18"
+    sku_name = "GlobalStandard"
+    capacity = 50
+  }
+  "chat-large" = {
+    model    = "gpt-4o"
+    version  = "2024-11-20"
+    sku_name = "GlobalStandard"
+    capacity = 20
+  }
+  "embedding" = {
+    model    = "text-embedding-3-small"
+    version  = "1"
+    sku_name = "Standard"
+    capacity = 50
+  }
+}
+
+embedding_dimensions = 1536
+search_sku           = "basic"
+
+# Your public IP, so you can upload documents. Leave empty to keep storage fully private.
+allowed_ip_addresses = []
